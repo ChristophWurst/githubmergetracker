@@ -47,7 +47,9 @@
 					<?php endforeach; ?>
 					</ul>
 				<?php else: ?>
-					<p><?php p($l->t('All done. 🚀')) ?></p>
+					<?php if($repo->getLastScanTime() > 0): ?>
+						<p><?php p($l->t('All done. 🚀')) ?></p>
+					<?php endif; ?>
 				<?php endif; ?>
 				<?php if($repo->getLastScanTime() > 0): ?>
 					<em><small><?php p($l->t('Last scan: %s', OCP\Template::relative_modified_date($repo->getLastScanTime()))) ?></small></em>
