@@ -20,7 +20,7 @@ $container->query('OCP\INavigationManager')->add(function () use ($container) {
 	return [
 		'id' => 'githubmergetracker',
 		'href' => $urlGenerator->linkToRoute('githubmergetracker.page.index'),
-		'icon' => $urlGenerator->imagePath('contacts', 'app.svg'),
+		'icon' => $urlGenerator->imagePath('githubmergetracker', 'app.svg'),
 		'name' => $l10n->t('GitHub Merge Tracker'),
 		'order' => 99,
 	];
