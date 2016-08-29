@@ -129,6 +129,6 @@ class TrackedRepo {
 			} else {
 				$this->config->setAppValue($this->appName, 'lastScanTime-'.(string)$this->repoId, time());
 			}
-		} catch (\Exception $e) {}
+		} catch (\ParseError $e) {}
 	}
 }
