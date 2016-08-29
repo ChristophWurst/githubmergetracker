@@ -13,6 +13,7 @@ use OCP\AppFramework\App;
 
 $app = new App('githubmergetracker');
 $container = $app->getContainer();
+\OC::$server->getJobList()->add('OCA\GitHubMergeTracker\BackgroundJobs\Scanner');
 
 $container->query('OCP\INavigationManager')->add(function () use ($container) {
 	$urlGenerator = $container->query('OCP\IURLGenerator');
