@@ -36,12 +36,19 @@
 					<?php if($_['id'] !== $repo->getId()) { continue; } ?>
 				<?php endif; ?>
 				<h3><?php p($repo->getName()) ?></h3>
-				<ul class="pull-request-list">
-				<?php foreach($repo->getUnresolvedPullRequests() as $pullRequest): ?>
-					<li><a href="https://github.com/<?php p($repo->getName()) ?>/<?php p($pullRequest['issueId']) ?>"><?php p($pullRequest['title']) ?> (#<?php p($pullRequest['issueId']) ?>)</a>
-						&nbsp;&nbsp;<a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('githubmergetracker.page.resolve', ['id' => $pullRequest['id'], 'requesttoken' => \OCP\Util::callRegister()])) ?>" class="button"><?php p($l->t('Mark done')) ?></a></li>
-				<?php endforeach; ?>
-				</ul>
+				<?php
+				$unresolvedPRs = $repo->getUnresolvedPullRequests();
+				if(count($unresolvedPRs) > 0): ?>
+					<ul class="pull-request-list">
+
+					<?php foreach($repo->getUnresolvedPullRequests() as $pullRequest): ?>
+						<li><a href="https://github.com/<?php p($repo->getName()) ?>/<?php p($pullRequest['issueId']) ?>"><?php p($pullRequest['title']) ?> (#<?php p($pullRequest['issueId']) ?>)</a>
+							&nbsp;&nbsp;<a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('githubmergetracker.page.resolve', ['id' => $pullRequest['id'], 'requesttoken' => \OCP\Util::callRegister()])) ?>" class="button"><?php p($l->t('Mark done')) ?></a></li>
+					<?php endforeach; ?>
+					</ul>
+				<?php else: ?>
+					<p><?php p($l->t('No new merged:-)')) ?></p>
+				<?php endif; ?>
 				<em><small><?php p($l->t('Last scan: %s', $repo->getLastScanTime())) ?></small></em>
 			<?php endforeach; ?>
 		</div>
