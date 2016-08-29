@@ -124,10 +124,9 @@ class TrackedRepo {
 				);
 			}
 
+			$this->config->setAppValue($this->appName, 'lastScanTime-'.(string)$this->repoId, time());
 			if(count($decodedBody) !== 0) {
 				$this->scan($page+1);
-			} else {
-				$this->config->setAppValue($this->appName, 'lastScanTime-'.(string)$this->repoId, time());
 			}
 		} catch (\ParseError $e) {}
 	}
