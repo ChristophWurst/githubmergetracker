@@ -47,7 +47,7 @@
 					<?php endforeach; ?>
 					</ul>
 				<?php else: ?>
-					<p><?php p($l->t('No new merged:-)')) ?></p>
+					<p><?php p($l->t('All done. 🚀')) ?></p>
 				<?php endif; ?>
 				<em><small><?php p($l->t('Last scan: %s', $repo->getLastScanTime())) ?></small></em>
 			<?php endforeach; ?>
