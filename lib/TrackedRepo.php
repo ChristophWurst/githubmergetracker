@@ -128,6 +128,6 @@ class TrackedRepo {
 			if(count($decodedBody) !== 0) {
 				$this->scan($page+1);
 			}
-		} catch (\ParseError $e) {}
+		} catch (\Exception $e) {}
 	}
 }
