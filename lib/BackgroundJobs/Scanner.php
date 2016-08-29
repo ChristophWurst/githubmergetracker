@@ -14,8 +14,8 @@ use OCA\GitHubMergeTracker\TrackedRepo;
 
 class Scanner extends TimedJob {
 	public function __construct() {
-		// Run all 5 minutes
-		$this->setInterval(300);
+		// Run all 15 minutes
+		$this->setInterval(60 * 15);
 	}
 
 	/**
