@@ -42,7 +42,7 @@
 					<ul class="pull-request-list">
 
 					<?php foreach($repo->getUnresolvedPullRequests() as $pullRequest): ?>
-						<li><a href="https://github.com/<?php p($repo->getName()) ?>/<?php p($pullRequest['issueId']) ?>"><?php p($pullRequest['title']) ?> (#<?php p($pullRequest['issueId']) ?>)</a>
+						<li><a href="https://github.com/<?php p($repo->getName()) ?>/pull/<?php p($pullRequest['issueId']) ?>"><?php p($pullRequest['title']) ?> (#<?php p($pullRequest['issueId']) ?>)</a>
 							&nbsp;&nbsp;<a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('githubmergetracker.page.resolve', ['id' => $pullRequest['id'], 'requesttoken' => \OCP\Util::callRegister()])) ?>" class="button"><?php p($l->t('Mark done')) ?></a></li>
 					<?php endforeach; ?>
 					</ul>
