@@ -40,7 +40,6 @@ class Scanner extends TimedJob {
 			);
 			$trackedRepo->scan();
 		}
-		exit();
 	}
 
 }
