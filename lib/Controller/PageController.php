@@ -64,7 +64,7 @@ class PageController extends Controller {
 	public function resolve($id) {
 		$qb = $this->dbConnection->getQueryBuilder();
 		$qb->update('githubmergetracker_importedIssues')
-			->set('state', '1')
+			->set('state', $qb->createNamedParameter('1'))g
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id, \PDO::PARAM_STR)))
 			->execute();
 		return new RedirectResponse($this->urlGenerator->linkToRoute('githubmergetracker.page.index'));
