@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <info>
 	<id>githubmergetracker</id>
-	<name>GitHub Merge Tracker</name>
+	<name>GitHub merge tracker</name>
 	<namespace>GitHubMergeTracker</namespace>
 	<description>
 		Allows admins to specify a GitHub repository that should be watched, all
