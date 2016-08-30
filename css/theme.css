@@ -1,8 +1,7 @@
-#app-content-wrapper {
-	padding-left: 20px;
-}
-
 .pull-request-list {
 	list-style-type: decimal;
-	padding-left: 20px;
+}
+
+.pull-request-list li {
+	padding: 8px 0;
 }

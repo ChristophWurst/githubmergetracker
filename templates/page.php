@@ -30,12 +30,12 @@
 	</div>
 
 	<div id="app-content">
-		<div id="app-content-wrapper">
-			<?php foreach($repos as $repo): ?>
+		<?php foreach($repos as $repo): ?>
+			<div class="section">
 				<?php if($_['id'] !== 0): ?>
 					<?php if($_['id'] !== $repo->getId()) { continue; } ?>
 				<?php endif; ?>
-				<h3><?php p($repo->getName()) ?></h3>
+				<h2><?php p($repo->getName()) ?></h2>
 				<?php
 				$unresolvedPRs = $repo->getUnresolvedPullRequests();
 				if(count($unresolvedPRs) > 0): ?>
@@ -52,11 +52,11 @@
 					<?php endif; ?>
 				<?php endif; ?>
 				<?php if($repo->getLastScanTime() > 0): ?>
-					<em><small><?php p($l->t('Last scan: %s', OCP\Template::relative_modified_date($repo->getLastScanTime()))) ?></small></em>
+					<p><em><small><?php p($l->t('Last scan: %s', OCP\Template::relative_modified_date($repo->getLastScanTime()))) ?></small></em></p>
 				<?php else: ?>
-					<em><small><?php p($l->t('Scanning queued…') )?></small></em>
+					<p><em><small><?php p($l->t('Scanning queued …') )?></small></em></p>
 				<?php endif; ?>
-			<?php endforeach; ?>
-		</div>
+			</div>
+		<?php endforeach; ?>
 	</div>
 </div>
