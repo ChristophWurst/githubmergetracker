@@ -5,3 +5,7 @@
 .pull-request-list li {
 	padding: 8px 0;
 }
+
+.pull-request-list .button {
+	display: inline-block;
+}
