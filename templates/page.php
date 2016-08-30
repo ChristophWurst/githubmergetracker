@@ -31,10 +31,10 @@
 
 	<div id="app-content">
 		<?php foreach($repos as $repo): ?>
+			<?php if($_['id'] !== 0): ?>
+				<?php if($_['id'] !== $repo->getId()) { continue; } ?>
+			<?php endif; ?>
 			<div class="section">
-				<?php if($_['id'] !== 0): ?>
-					<?php if($_['id'] !== $repo->getId()) { continue; } ?>
-				<?php endif; ?>
 				<h2><?php p($repo->getName()) ?></h2>
 				<?php
 				$unresolvedPRs = $repo->getUnresolvedPullRequests();
