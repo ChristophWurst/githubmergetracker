@@ -3,6 +3,7 @@
 	<id>githubmergetracker</id>
 	<name>GitHub merge tracker</name>
 	<namespace>GitHubMergeTracker</namespace>
+	<summary>Track merged pull requests in GitHub repositories.</summary>
 	<description>
 		Allows admins to specify a GitHub repository that should be watched, all
 		newly merged pull requests will then be added to a review list and can be
