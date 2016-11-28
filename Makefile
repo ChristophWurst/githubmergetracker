@@ -18,6 +18,7 @@ appstore: clean
 	mkdir -p $(sign_dir)
 	rsync -av \
 	--exclude=.git \
+	--exclude=screenshots \
 	$(project_dir) $(sign_dir)
 	cd $(sign_dir)
 	@echo "Signing…"

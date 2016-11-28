@@ -4,28 +4,28 @@
 	<name>GitHub merge tracker</name>
 	<namespace>GitHubMergeTracker</namespace>
 	<summary>Track merged pull requests in GitHub repositories.</summary>
-	<description>
-		Allows admins to specify a GitHub repository that should be watched, all
+	<description>Allows admins to specify a GitHub repository that should be watched, all
 		newly merged pull requests will then be added to a review list and can be
 		marked as resolved by users.
 
-		After installing this app it is required to configure the following two
-		configuration flags in your config.php file:
+After installing this app it is required to configure the following two
+configuration flags in your config.php file:
 
-		- github.client_id
-		- github.client_secret
+- github.client_id
+- github.client_secret
 
-		You have to use valid data from https://github.com/settings/developers.
+You have to use valid data from https://github.com/settings/developers.
 	</description>
 	<licence>AGPL</licence>
 	<author>Lukas Reschke</author>
-	<version>0.0.10</version>
+	<version>0.0.11</version>
 	<dependencies>
 		<nextcloud min-version="11" max-version="11" />
 	</dependencies>
 	<background-jobs>
 		<job>OCA\GitHubMergeTracker\BackgroundJobs\Scanner</job>
 	</background-jobs>
+	<screenshot>https://raw.githubusercontent.com/LukasReschke/githubmergetracker/master/screenshots/interface.jpg</screenshot>
 	<repository>https://github.com/LukasReschke/githubmergetracker/</repository>
 	<category>integration</category>
 </info>
