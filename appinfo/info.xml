@@ -7,14 +7,24 @@
 		Allows admins to specify a GitHub repository that should be watched, all
 		newly merged pull requests will then be added to a review list and can be
 		marked as resolved by users.
+
+		After installing this app it is required to configure the following two
+		configuration flags in your config.php file:
+
+		- github.client_id
+		- github.client_secret
+
+		You have to use valid data from https://github.com/settings/developers.
 	</description>
 	<licence>AGPL</licence>
 	<author>Lukas Reschke</author>
-	<version>0.0.9</version>
+	<version>0.0.10</version>
 	<dependencies>
-		<owncloud min-version="9.1" max-version="9.2" />
+		<nextcloud min-version="11" max-version="11" />
 	</dependencies>
 	<background-jobs>
 		<job>OCA\GitHubMergeTracker\BackgroundJobs\Scanner</job>
 	</background-jobs>
+	<repository>https://github.com/LukasReschke/githubmergetracker/</repository>
+	<category>integration</category>
 </info>
