@@ -18,14 +18,14 @@ You have to use valid data from https://github.com/settings/developers.
 	</description>
 	<licence>AGPL</licence>
 	<author>Lukas Reschke</author>
-	<version>0.0.11</version>
+	<version>0.0.12</version>
 	<dependencies>
 		<nextcloud min-version="11" max-version="11" />
 	</dependencies>
 	<background-jobs>
 		<job>OCA\GitHubMergeTracker\BackgroundJobs\Scanner</job>
 	</background-jobs>
-	<screenshot>https://raw.githubusercontent.com/LukasReschke/githubmergetracker/master/screenshots/interface.jpg</screenshot>
+	<screenshot>https://raw.githubusercontent.com/LukasReschke/githubmergetracker/master/screenshots/interface.png</screenshot>
 	<repository>https://github.com/LukasReschke/githubmergetracker/</repository>
 	<category>integration</category>
 </info>
