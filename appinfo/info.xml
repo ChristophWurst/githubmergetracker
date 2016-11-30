@@ -18,7 +18,7 @@ You have to use valid data from https://github.com/settings/developers.
 	</description>
 	<licence>AGPL</licence>
 	<author>Lukas Reschke</author>
-	<version>0.0.14</version>
+	<version>0.0.15</version>
 	<dependencies>
 		<nextcloud min-version="11" max-version="11" />
 	</dependencies>
