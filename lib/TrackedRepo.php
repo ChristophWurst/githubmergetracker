@@ -109,19 +109,35 @@ class TrackedRepo {
 					continue;
 				}
 
-				// Insert if not exists
-				\OCP\DB::insertIfNotExist(
-					'*PREFIX*githubmergetracker_importedIssues',
-					[
-						'repoId' => $this->getId(),
-						'issueId' => $id,
-						'title' => $title,
-					],
-					[
-						'repoId',
-						'issueId',
-					]
-				);
+				$qb = $this->dbConnection->getQueryBuilder();
+				$results = $qb->select('*')
+					->from('githubmergetracker_importedIssues')
+					->where($qb->expr()->eq('repoId', $qb->createNamedParameter($this->getId(), \PDO::PARAM_STR)))
+					->andWhere($qb->expr()->eq('issueId', $qb->createNamedParameter($id, \PDO::PARAM_STR)))
+					->execute();
+				if(count($results->fetchAll()) === 0) {
+					\OC::$server->getLogger()->info(
+						sprintf(
+							'Added issue "%s" to repo "%s" because it has not been found before',
+							$id,
+							$this->getId()
+						)
+					);
+
+					// Insert if not exists
+					\OCP\DB::insertIfNotExist(
+						'*PREFIX*githubmergetracker_importedIssues',
+						[
+							'repoId' => $this->getId(),
+							'issueId' => $id,
+							'title' => $title,
+						],
+						[
+							'repoId',
+							'issueId',
+						]
+					);
+				}
 			}
 
 			$this->config->setAppValue($this->appName, 'lastScanTime-'.(string)$this->repoId, time());
