@@ -121,7 +121,10 @@ class TrackedRepo {
 							'Added issue "%s" to repo "%s" because it has not been found before',
 							$id,
 							$this->getId()
-						)
+						),
+						[
+							'app' => $this->appName
+						]
 					);
 
 					// Insert if not exists
