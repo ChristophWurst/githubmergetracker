@@ -59,15 +59,20 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 *
 	 * @param int $id
+	 * @param int $repoId
 	 * @return RedirectResponse
 	 */
-	public function resolve($id) {
+	public function resolve($id, $repoId = null) {
 		$qb = $this->dbConnection->getQueryBuilder();
 		$qb->update('githubmergetracker_importedIssues')
 			->set('state', $qb->createNamedParameter('1'))
 			->where($qb->expr()->eq('id', $qb->createNamedParameter($id, \PDO::PARAM_STR)))
 			->execute();
-		return new RedirectResponse($this->urlGenerator->linkToRoute('githubmergetracker.page.index'));
+		$args = [];
+		if($repoId !== null) {
+			$args['id'] = (int)$repoId;
+		}
+		return new RedirectResponse($this->urlGenerator->linkToRoute('githubmergetracker.page.index', $args));
 	}
 
 	/**

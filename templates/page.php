@@ -43,7 +43,7 @@
 
 					<?php foreach($repo->getUnresolvedPullRequests() as $pullRequest): ?>
 						<li><a rel="noreferrer" href="https://github.com/<?php p($repo->getName()) ?>/pull/<?php p($pullRequest['issueId']) ?>"><?php p($pullRequest['title']) ?> (#<?php p($pullRequest['issueId']) ?>)</a>
-							&nbsp;&nbsp;<a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('githubmergetracker.page.resolve', ['id' => $pullRequest['id'], 'requesttoken' => \OCP\Util::callRegister()])) ?>" class="button"><?php p($l->t('Mark done')) ?></a></li>
+							&nbsp;&nbsp;<a href="<?php p(\OC::$server->getURLGenerator()->linkToRoute('githubmergetracker.page.resolve', ['id' => $pullRequest['id'], 'repoId' => $repo->getId(), 'requesttoken' => \OCP\Util::callRegister()])) ?>" class="button"><?php p($l->t('Mark done')) ?></a></li>
 					<?php endforeach; ?>
 					</ul>
 				<?php else: ?>
