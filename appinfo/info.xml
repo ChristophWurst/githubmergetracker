@@ -20,7 +20,7 @@ You have to use valid data from https://github.com/settings/developers.
 	<author>Lukas Reschke</author>
 	<version>0.0.17</version>
 	<dependencies>
-		<nextcloud min-version="12" max-version="12" />
+		<nextcloud min-version="12" max-version="13" />
 	</dependencies>
 	<background-jobs>
 		<job>OCA\GitHubMergeTracker\BackgroundJobs\Scanner</job>
