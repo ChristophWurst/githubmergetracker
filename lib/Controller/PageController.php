@@ -45,7 +45,7 @@ class PageController extends Controller {
 	 * @return JSONResponse
 	 */
 	public function addRepoToTrack($repo) {
-		\OCP\DB::insertIfNotExist(
+		$this->dbConnection->insertIfNotExist(
 			'*PREFIX*githubmergetracker_trackedRepos',
 			[
 				'repo' => strtolower($repo),

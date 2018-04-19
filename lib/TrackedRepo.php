@@ -128,7 +128,7 @@ class TrackedRepo {
 					);
 
 					// Insert if not exists
-					\OCP\DB::insertIfNotExist(
+					$this->dbConnection->insertIfNotExist(
 						'*PREFIX*githubmergetracker_importedIssues',
 						[
 							'repoId' => $this->getId(),
